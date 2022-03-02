@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/dream.dwt" codeOutsideHTMLIsLocked="false" -->
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Project:Dream☆Weaver - Yui Sakano - A Magical Girl!? - Yui's not so Wonderful Life</title>
+    <!-- InstanceEndEditable -->
+    <!-- Bootstrap -->
+    <link href="../../../../css/onegai.css" rel="stylesheet">
+    <link href="../../../../images/onigirionegai_icon_196.png" rel="icon" sizes="192x192">
+    <link href="../../../../images/onigirionegai_icon_144.png" rel="icon" sizes="144x144">
+    <link href="../../../../images/onigirionegai_icon_48.png" rel="icon" sizes="48x48">
+    <link href="../../../../images/onigirionegai_icon_32.png" rel="icon" sizes="32x32">
+    <link href="../../../../images/onigirionegai_icon_16.png" rel="icon" sizes="16x16">
+    <meta name="application-name" content="OnigiriOnegai">
+    <meta name="theme-color" content="#EC95C8">
+    <script src="../../../../js/popper.min.js" language="javascript" type="text/javascript"></script>
+    <script src="../../../../js/jquery-3.3.1.min.js" language="javascript" type="text/javascript"></script>
+    <script src="../../../../js/bootstrap-4.3.1.js" language="javascript" type="text/javascript"></script>
+    <script src="../../../../js/vue.min.js" language="javascript" type="text/javascript"></script>
+  <!-- InstanceBeginEditable name="head" -->
+    <style>
+      @media screen and (min-width: 320px) and (max-width: 800px) and (orientation: portrait) {
+      html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+    }
+    body,td,th {
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+    </style>
+  <!-- InstanceEndEditable -->
+  <!-- InstanceParam name="Latest" type="boolean" value="false" -->
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-onigiri bg-onigiri">
+    <a class="navbar-brand" href="#">Onigiri☆Onegai</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="../../../../index.html">News &amp; Info</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../../dream-weaver/">Project:Dream☆Weaver</a></li>
+        <li class="nav-item"><a class="nav-link" href="//forums.onigirionegai.info">Discussion Forums</a></li>
+      </ul>
+      <a href="https://www.patreon.com/bePatron?u=29802411" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    </div>
+  </nav>
+  <div class="modal" id="TargetModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Old Modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <section id="body"><!-- InstanceBeginEditable name="MainBody" -->
+  <div class="container full-width">
+    <script src="../../../../js/scene.js" language="javascript"></script>
+    <div class="dropdown">
+      <h1 title="Yui's not-so wonderful life" class="dropdown-toggle" id="usrMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="#End">Episode 1</a>
+      </h1>
+      <div id="usrMenu" class="dropdown-menu" aria-labelledby="usrMenuBtn">
+        <a v-if="user.username" class="dropdown-item" :href="'//forums.onigirionegai.info/memberlist.php?mode=viewprofile&u='+user.user_id+'&sid='+user.session_id" title="view your profile">Welcome {{ user.username }}!</a>
+        <a v-else class="dropdown-item" href="https://forums.onigirionegai.info/ucp.php?mode=login&redirect=/home.php?path=project/dream-weaver">Login</a>
+        <section id="UserArea" v-if="user.level<5">
+          <a class="dropdown-item" href="//forums.onigirionegai.info/ucp.php">User Control Panel</a>
+          <a class="dropdown-item" href="#">Current Progress</a>
+        </section>
+        <section id="StaffArea" v-if="user.level==1">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/mcp.php?i=main&mode=front&sid='+user.session_id">Moderator Control Panel</a>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/adm/index.php?sid='+user.session_id">Forum Administration</a>
+          <a class="dropdown-item" href="//onigirionegai.info/phpmyadmin">VN Database Management</a>
+        </section>
+        <div class="dropdown-divider"></div>
+        <a id="skipBtn" class="dropdown-item" href="#End">Skip</a>
+        <a id="logBtn" accesskey="s" class="dropdown-item" href="#">Scene Log</a>
+        <section id="Logout" v-if="user.username">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/ucp.php?mode=logout&redirect=/home.php?path=project/dream-weaver\&sid='+user.session_id">Logout</a>
+        </section>
+      </div>
+    <script language="javascript" type="application/javascript">
+      var app= new Vue({
+        el:'#usrMenu',
+        data:{
+          user: []
+        },
+        created(){
+          fetch('../../../../php/user.php?action=getname')
+          .then(response => response.json())
+          .then(json => {
+            this.user = json
+          });
+        }
+      });
+    </script>
+    <div class="row scene">
+      <div id="1" class="panel-lt" style="background-image: url('../../images/backgrounds/locations/yui-house-front_morning.png')">
+        <div id="1-1" class="text caption">
+          <p id="1-1-1"><span class="name">-Yui's Brother-</span><em>*knock* *knock*</em></p>
+          <p id="1-1-2"><span class="name">-Yui's Brother-</span>Yui!</p>
+        </div>
+      </div>
+      <div id="2" class="panel-lt" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1_04.png')">
+        <div id="2-1" class="text caption">
+          <p id="2-1-1"><span class="name">-Yui-</span>...</p>
+          <p id="2-1-2"><span class="name">-Yui's Brother-</span>You should get up before mom...</p>
+          <p id="2-1-3"><span class="name">-Yui's Mother-</span>YUI!! Get your butt out of bed!</p>
+          <p id="2-1-4"><span class="name">-Yui's Mother-</span>I&#39;M NOT TELLING YOU AGAIN!!</p>
+        </div>
+      </div>
+      <div id="3" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/yui-bedroom_morning-lit.png')">
+        <div id="3-1" class="text dialogue">
+          <img class="actor center" src="../../images/actors/girls/yui-upset_pjs.png" alt="Yui upset in her summer pajamas">
+          <p id="3-1-1"><span class="name">Yui</span><em>*sigh*</em></p>
+          <p id="3-1-2"><span class="name">Yui</span>I guess mom&#39;s home today.</p>
+        </div>
+        <div id="3-2" class="text dialogue">
+          <p id="3-2-1"><span class="name">Yui's mother</span>Are you out of bed!?</p>
+        </div>
+        <div id="3-3" class="text dialogue">
+          <img class="actor center" src="../../images/actors/girls/yui-upset_pjs.png" alt="Yui upset in her summer pajamas">
+          <p id="3-3-1"><span class="name">Yui</span>I&#39;m getting dressed!</p>
+        </div>
+        <div id="3-4" class="text dialogue">
+          <p id="3-4-1"><span class="name">Yui's mother</span>You&#39;re going to be late.</p>
+        </div>
+      </div>
+      <div id="4" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/yui-house_bar_bottles.png')">
+        <div id="4-1" class="text narration">
+          <p id="4-1-1">By the time I made it downstairs, it was already almost time to leave.</p>
+        </div>
+        <div id="4-2" class="text dialogue">
+          <p id="4-2-1"><span class="name">Yui's mother</span>Guess you don&#39;t get breakfast.</p>
+          <p id="4-2-2"><span class="name">Yui's mother</span>Honestly! What am I going to do with you!?</p>
+          <p id="4-2-3"><span class="name">Yui's mother</span>Get your butt out the door!</p>
+        </div>
+        <div id="4-3" class="text dialogue">
+          <img class="actor center" src="../../images/actors/girls/yui-worried_sgs.png" alt="Yui holding herself in summer school uniform">
+          <p id="4-3-1"><span class="name">Yui</span><small>Sorry</small></p>
+        </div>
+        <div id="4-4" class="text narration">
+          <p id="4-4-1">Waking up was starting to get hard for me.</p>
+          <p id="4-4-2">When all you had to look forward to was humilation and name calling, there really wasn't much reason to face the day.</p>
+        </div>
+        <div id="4-5" class="text dialogue">
+          <p id="4-5-1"><span class="name">Yui's brother</span>Don&#39;t worry.</p>
+        </div>
+        <div id="4-6" class="text narration">
+          <p id="4-6-1">My brother winked at me.</p>
+          <p id="4-6-2">He handed me my bento.</p>
+          <p id="4-6-3">There was a piece of french toast with some jam on top of it.</p>
+          <p id="4-6-4">These little act of kindness from my brother were the only reason I had to get up in the morning.</p>
+          <p id="4-6-5">He really had a way of making me feel special, even if no one else even bothered.</p>
+        </div>
+      </div>
+      <div id="5" class="panel-lt" style="background-image: url('../../images/backgrounds/locations/seven-hearts-annex_daytime-spring.png')">
+        <div id="5-1" class="text narration">
+          <p id="5-1-1">Despite all his smiles and kind words, I had a hard time even talking to my brother as we walked to school.</p>
+          <p id="5-1-2">There was a knot in my stomach the whole time, which made it really hard to say anything.</p>
+          <p id="5-1-3">If he noticed he didn&#39;t mention it.</p>
+          <p id="5-1-4">The knot got tighter the closer we got to school.</p>
+        </div>
+        <div id="5-2" class="text dialogue">
+          <p id="5-2-1"><span class="name">Yui's brother</span>Guess I&#39;ll see you after school.</p>
+        </div>
+        <div id="5-3" class="text narration">
+          <p id="5-3-1">I just nodded and watched as my brother headed toward the main building.</p>
+          <p id="5-3-2">I took a deep breath.</p>
+        </div>
+        <div id="5-4" class="text dialogue">
+          <img class="actor right" src="../../images/actors/girls/yui-hurt_sgs.gif" alt="Yui get hurt in her summer school uniform">
+          <p class="src-right" id="5-4-1"><span class="name">Yui</span>Ouch!</p>
+        </div>
+        <div id="5-5" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="One of Yui's classmates">
+          <img class="actor right" src="../../images/actors/girls/yui-hurt_sgs.png" alt="Yui in her summer school uniform after getting hurt">
+          <p class="src-left" id="5-5-1"><span class="name">Yui's classmate</span>Why are you just standing there? Idiot!</p>
+        </div>
+        <div id="5-6" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="One of Yui's classmates">
+          <img class="actor right" src="../../images/actors/girls/yui-worried_sgs.png" alt="Yui holding herself in summer school uniform">
+          <p class="src-right" id="5-6-1"><span class="name">Yui</span><small>S-sorry</small></p>
+        </div>
+      </div>
+      <div id="6" class="panel-lt" style="background-image: url('../../images/backgrounds/heartseeds/yui_cracks.png')">
+        <div id="6-1" class="text narration">
+          <p id="6-1-1">It looked like my day of horror was going to start early today.</p>
+        </div>
+      </div>
+      <div id="7" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/seven-hearts-classroom.png')">
+        <div id="7-1" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shb5-neutral_uniform.png" alt="A boy in Yui's class with short hair">
+          <img class="actor right" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="A girl in Yui's class with short hair">
+          <p id="7-1-1" class="src-left"><span class="name">Classmate C</span>You won&#39;t get away from me!</p>
+          <p id="7-1-2" class="src-right"><span class="name">Classmate A</span>Just catch her already!</p>
+          <p id="7-1-3" class="src-right"><span class="name">Classmate A</span>I&#39;ve got her new home all ready for her!</p>
+        </div>
+        <div id="7-2" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/ptg5-neutral_uniform.png" alt="A girl in Yui's class with pig tails">
+          <img class="actor right" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="A girl in Yui's class with short hair">
+          <p id="7-2-1" class="src-left"><span class="name">Classmate B</span>Hurry up, the teacher will be here any minute!</p>
+      </div>
+        <div id="7-3" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shb5-neutral_uniform.png" alt="A boy in Yui's class with short hair">
+          <img class="actor right" src="../../images/actors/girls/yui-neutral_sgs.png" alt="Yui in her summer school uniform">
+          <p id="7-3-1" class="src-right"><span class="name">Yui</span>...</p>
+        </div>
+        <div id="7-4" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shb5-neutral_uniform.png" alt="A boy in Yui's class with short hair">
+          <p id="7-4-1" class="src-left"><span class="name">Classmate C</span>Damn it! She&#39;s fast!</p>
+        </div>
+        <div id="7-5" class="text dialogue">
+          <img class="actor center" src="../../images/actors/girls/yui-wornout_sgs.png" alt="Yui's all worn out in her summer school uniform">
+          <p id="7-5-1"><span class="name">Yui</span><em>*huff* *huff*</em></p>
+          <p id="7-5-2"><span class="name">Yui</span>I...</p>
+          <p id="7-5-3"><span class="name">Yui</span><em>*huff*</em></p>
+          <p id="7-5-4"><span class="name">Yui</span>Just leave me alone!</p>
+        </div>
+        <div id="7-6" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="A girl in Yui's class with short hair">
+          <img class="actor right" src="../../images/actors/girls/yui-hurt_sgs.gif" alt="Yui getting caught in her summer school uniform">
+          <p id="7-6-1" class="src-right"><span class="name">Yui</span>Eeek!</p>
+          <p id="7-6-2" class="src-left"><span class="name">Classmate A</span>Gotcha!</p>
+        </div>
+        <div id="7-7" class="text dialogue">
+          <img class="actor center" src="../../images/actors/misc/ptg5-neutral_uniform.png" alt="A girl in Yui's class with pig tails">
+          <p id="7-7-1"><span class="name">Classmate B</span>The teacher&#39;s coming!</p>
+        </div>
+        <div id="7-8" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="A girl in Yui's class with short hair">
+          <img class="actor right" src="../../images/actors/girls/yui-hurt_sgs.png" alt="Yui still be held in her summer school uniform">
+          <p id="7-8-1" class="src-left"><span class="name">Classmate A</span>Don&#39;t think you got lucky or anything.</p>
+        </div>
+        <div id="7-9" class="text dialogue">
+          <p id="7-9-1"><span class="name">Yui's homeroom teacher</span>Take your seats everyone!</p>
+          <p id="7-9-2"><span class="name">Yui's homeroom teacher</span>Yui Sakano, I need to see you after class.</p>
+        </div>
+      </div>
+      <div id="8" class="panel-lt" style="background-image: url('../../images/backgrounds/heartseeds/yui_cracks.png')">
+        <div id="8-1" class="text narration">
+          <p id="8-1-1">I had a feeling I knew what this was about.</p>
+          <p id="8-1-2">To my teachers, <em>I</em> was the disruption, not the other girls or boys in the class.</p>
+          <p id="8-1-3">Just me.</p>
+        </div>
+      </div>
+      <div id="9" class="panel-dk" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1a1_01.png')">
+        <div id="9-1" class="text caption">
+          <p id="9-1-1"><span class="name">-Yui's homeroom teacher-</span>When are you going to stop being such a pain!?</p>
+          <p id="9-1-2"><span class="name">-Yui-</span>I...</p>
+          <p id="9-1-3"><span class="name">-Yui's homeroom teacher-</span>Yukari says you slapped her.</p>
+        </div>
+        <div id="9-2" class="text narration">
+          <p id="9-2-1">Is that what she said?</p>
+          <p id="9-2-2">As I recall it, she slapped me, but I guess that doesn&#39;t matter.</p>
+        </div>
+        <div id="9-3" class="text caption">
+          <p id="9-3-1"><span class="name">-Yui-</span>I didn&#39;t.</p>
+          <p id="9-3-2"><span class="name">-Yui's homeroom teacher-</span>So, Yukari-chan is a liar?</p>
+          <p id="9-3-3"><span class="name">-Yui-</span>I didn&#39;t say that.</p>
+          <p id="9-3-4"><span class="name">-Yui's homeroom teacher-</span>You&#39;re going to apologize to Yukari-chan and then you&#39;re staying after classes to help class 5-3 clean up.</p>
+          <p id="9-3-5"><span class="name">-Yui-</span>I can&#39;t, my mom...</p>
+          <p id="9-3-6"><span class="name">-Yui's homeroom teacher-</span>You&#39;re staying after.</p>
+          <p id="9-3-7"><span class="name">-Yui's homeroom teacher-</span>Sort it out!</p>
+        </div>
+      </div>
+      <div id="10" class="panel-lt" style="background-image: url('../../images/backgrounds/heartseeds/yui_cracks.png')">
+        <div id="10-1" class="text narration">
+          <p id="10-1-1">The teacher just left.</p>
+          <p id="10-1-2">I don&#39;t even know why I tried to mention my mom.</p>
+          <p id="10-1-3">I knew if she was home tonight and I showed up late she&#39;d be mad, but it wasn&#39;t likely she&#39;d be home.</p>
+          <p id="10-1-4">I pulled out my cell phone, turned it on, and opened the messagaging app.</p>
+        </div>
+      </div>
+      <div id="11" class="panel-dk" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1a1_03.png')">
+        <div id="11-1" class="text caption">
+          <p id="11-1-1"><span class="name">-Yui-</span><span class="etxt">If mom&#39;s home, tell her I&#39;m going to be late. They&#39;re making me stay.</span></p>
+          <p id="11-1-2"><span class="name">-Yui-</span><span class="etxt">Sorry =^^;=</span></p>
+        </div>
+        <div id="11-2" class="text narration">
+          <p id="11-2-1">I was about to put my mom&#39;s number in the &#39;to:&#39; field, but decided to send the message to my brother instead.</p>
+        </div>
+      </div>
+      <div id="12" class="panel-lt" style="background-image: url('../../images/backgrounds/locations/seven-hearts-pool_afternoon.png')">
+        <div id="12-1" class="text narration">
+          <p id="12-1-1">My school day was just beginning.</p>
+          <p id="12-1-2">Because it was still warm, we had a swimming lesson in the afternoon.</p>
+          <p id="12-1-3">I skipped lunch entirely and managed to get to the girl&#39;s locker room before anyone else.</p>
+          <p id="12-1-4">I was already in my swimsuit, stretching by the pool, before the rest of the girls even showed up.</p>
+        </div>
+        <div id="12-2" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="A girl from Yui's class with short hair">
+          <img class="actor right" src="../../images/actors/girls/yui-worried_swim.png" alt="Yui already in her swimsuit, but worried">
+          <p id="12-2-1" class="src-left"><span class="name">Classmate A</span>We were looking for you.</p>
+          <p id="12-2-2" class="src-right"><span class="name">Yui</span>...</p>
+          <p id="12-2-3" class="src-left"><span class="name">Classmate A</span>Yukari wanted to talk to you.</p>
+          <p id="12-2-4" class="src-left"><span class="name">Classmate A</span>She said you have something your supposed to say to her.</p>
+          <p id="12-2-5" class="src-right"><span class="name">Yui</span><em>*gulp*</em></p>
+          <p id="12-2-6" class="src-right"><span class="name">Yui</span><em>(Maybe it was best to just get it over with)</em></p>
+          <p id="12-2-7" class="src-right"><span class="name">Yui</span>I&#39;m s-supposed to apologize.</p>
+          <p id="12-2-8" class="src-left"><span class="name">Classmate A</span>That&#39;s right, for slapping her.</p>
+        </div>
+        <div id="12-3" class="text narration">
+          <p id="12-3-1">The girl leaned in real close. I could feel her breath on my ear.</p>
+        </div>
+        <div id="12-4" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="A girl from Yui's class with short hair">
+          <img class="actor right" src="../../images/actors/girls/yui-flushed_swim.png" alt="Yui already in her swimsuit, but flushed">
+          <p id="12-4-1" class="src-left"><span class="name">Classmate A</span><small>Must suck to have to apologize for slapping the person who slapped you.</small></p>
+          <p id="12-4-2" class="src-right"><span class="name">Yui</span>...</p>
+          <p id="12-4-3" class="src-left"><span class="name">Classmate A</span>Look, there she is now.</p>
+          <p id="12-4-4" class="src-left"><span class="name">Classmate A</span>You should hurry.</p>
+        </div>
+        <div id="12-5" class="text narration">
+          <p id="12-5-1">I stood.</p>
+          <p id="12-5-2">I turned toward the entrance.</p>
+          <p id="12-5-3">I took one step.</p>
+        </div>
+        <div id="12-6" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="A girl from Yui's class with short hair">
+          <img class="actor center" src="../../images/actors/girls/yui-hurt_swim.gif" alt="Yui gets tripped in her swimsuit">
+          <p id="12-6-1" class="src-right"><span class="name">Yui</span>Ouch!</p>
+        </div>
+        <div id="12-7" class="text narration">
+          <p id="12-7-1">My face hit the concrete next to the pool.</p>
+          <p id="12-7-2">I moved my hands and tried to push myself back up.</p>
+          <p id="12-7-3">Blood dripped from my nose.</p>
+        </div>
+        <div id="12-8" class="text dialogue">
+          <img class="actor center" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="A girl from Yui's class with short hair">
+          <p id="12-8-1"><span class="name">Classmate A</span>Teacher, Yui fell!</p>
+          <p id="12-8-2"><span class="name">Classmate A</span>Her nose is bleeding.</p>
+        </div>
+      </div>
+      <div id="13" class="panel-lt" style="background-image: url('../../images/backgrounds/heartseeds/yui_cracks.png')">
+        <div id="13-1" class="text narration">
+          <p id="13-1-1">I was given a towel and sent to the nurse&#39;s office.</p>
+          <p id="13-1-2">The nurse stuffed my nose with tissues and had me sit on a bed.</p>
+          <p id="13-1-3">She didn&#39;t say a word.</p>
+          <p id="13-1-4">Minutes later she removed the tissues.</p>
+          <p id="13-1-5">The bleeding had stopped so she rubbed my nose a bit.</p>
+        </div>
+      </div>
+      <div id="14" class="panel-dk" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1a1_02.png')">
+        <div id="14-1" class="text narration">
+          <p id="14-1-1">The nurse announced that my nose wasn&#39;t broken and sent me back to the girl&#39;s locker room.</p>
+          <p id="14-1-2">Fortunately everyone was in class so I was able to get dressed in peace.</p>
+          <p id="14-1-3"><em>*beep* *beep*</em></p>
+        </div>
+      </div>
+      <div id="15" class="panel-lt" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1a1_03.png')">
+        <div id="15-1" class="text narration">
+          <p id="15-1-1">I got a text from my brother...</p>
+        </div>
+        <div id="15-2" class="text caption">
+          <p id="15-2-1"><span class="name">-Yui's brother-</span><span class="etxt">I&#39;m sorry to hear that. You&#39;re not taking the blame for something you didn&#39;t do again, are you?</span></p>
+        </div>
+        <div id="15-3" class="text narration">
+          <p id="15-3-1">He knew exactly what was going on...</p>
+        </div>
+        <div id="15-4" class="text caption">
+          <p id="15-4-1"><span class="name">-Classmate C-</span>Is she texting her boyfriend?</p>
+          <p id="15-4-2"><span class="name">-Classmate B-</span>That&#39;s Yui you&#39;re talking about, she doesn&#39;t have a friend, let alone a boyfriend.</p>
+        </div>
+        <div id="15-5" class="text narration">
+          <p id="15-5-1">I put my phone away without replying to my brother.</p>
+        </div>
+      </div>
+      <div id="16" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/seven-hearts-classroom.png')">
+        <div id="16-1" class="text narration">
+          <p id="16-1-1">Apparently &quot;helping&quot; class 5-3 clean up, meant doing everything myself.</p>
+          <p id="16-1-2">As soon as I showed up the <em>two</em> students originally assigned to the task just left.</p>
+          <p id="16-1-3">I pulled out my cell phone...</p>
+        </div>
+      </div>
+      <div id="17" class="panel-lt" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1a1_03.png')">
+        <div id="17-1" class="text narration">
+          <p id="17-1-1">and read back the messages between my brother and I</p>
+        </div>
+        <div id="17-2" class="text caption">
+          <p id="17-2-1"><span class="name">-Yui-</span><span class="etxt">If mom&#39;s home, tell her I&#39;m going to be late. They&#39;re making me stay.</span></p>
+          <p id="17-2-2"><span class="name">-Yui-</span><span class="etxt">Sorry =^^;=</span></p>
+          <p id="17-2-3"><span class="name">-Yui's brother-</span><span class="etxt">I&#39;m sorry to hear that. You&#39;re not taking the blame for something you didn&#39;t do again, are you?</span></p>
+        </div>
+      </div>
+      <div id="End" class="panel-home" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1a1_03.png')">
+        <div class="choice">
+          <ul>
+            <li>I decided now would be a good time to reply to my brother...</li>
+            <li><a id="choice-a" href="../../../../php/user.php?action=save&level=episode&id=1&choice=a" class="btn btn-primary">Nope, I forgot I was assigned, sorry =^^;=</a></li>
+            <li><a id="choice-b" href="../../../../php/user.php?action=save&level=episode&id=1&choice=b" class="btn btn-primary">I&#39;m okay =^.^=b</a></li>
+            <li><a id="choice-c" href="../../../../php/user.php?action=save&level=episode&id=1&choice=c" class="btn btn-primary">How did you know? Are you psychic nii-san? =O.o=</a></li>
+          </ul>
+        </div>
+        <script language="javascript" type="text/javascript">
+          $.get("../../../../php/user.php?action=getchoice&chara=1&ch=1&ep=1",function(data){
+            data.forEach(function(item){
+              $("a#choice-"+item).addClass('disabled');
+            })
+          })
+        </script>
+      </div>
+    </div>
+  </div>
+  <!-- InstanceEndEditable -->
+  </section>
+  </body>
+<!-- InstanceEnd --></html>

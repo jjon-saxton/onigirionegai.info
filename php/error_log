@@ -1,0 +1,77 @@
+[03-Feb-2020 16:47:20 UTC] PHP Warning:  require_once(./database.inc.php): failed to open stream: No such file or directory in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 3
+[03-Feb-2020 16:47:20 UTC] PHP Fatal error:  require_once(): Failed opening required './database.inc.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 3
+[03-Feb-2020 16:47:44 UTC] PHP Warning:  parse_ini_file(database.ini): failed to open stream: No such file or directory in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php on line 9
+[03-Feb-2020 16:47:44 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Unable to open database.ini!' in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php:9
+Stack trace:
+#0 /home/onigirionegai/test.onigirionegai.info/php/database.inc.php(139): DataBaseSchema->__construct(NULL, 'database.ini')
+#1 /home/onigirionegai/test.onigirionegai.info/php/data_json.php(7): DataBaseTable->__construct('vn_characters')
+#2 {main}
+  thrown in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php on line 9
+[03-Feb-2020 16:49:10 UTC] PHP Fatal error:  Call to a member function fetchAll() on boolean in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php on line 167
+[07-Feb-2020 02:29:36 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1364 Field 'email' doesn't have a default value' in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php:448
+Stack trace:
+#0 /home/onigirionegai/test.onigirionegai.info/php/database.inc.php(448): PDOStatement->execute(Array)
+#1 /home/onigirionegai/test.onigirionegai.info/php/login.php(65): DataBaseTable->putData(Array)
+#2 {main}
+  thrown in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php on line 448
+[07-Feb-2020 02:30:31 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1364 Field 'email' doesn't have a default value' in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php:448
+Stack trace:
+#0 /home/onigirionegai/test.onigirionegai.info/php/database.inc.php(448): PDOStatement->execute(Array)
+#1 /home/onigirionegai/test.onigirionegai.info/php/login.php(66): DataBaseTable->putData(Array)
+#2 {main}
+  thrown in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php on line 448
+[07-Feb-2020 02:30:34 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1364 Field 'email' doesn't have a default value' in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php:448
+Stack trace:
+#0 /home/onigirionegai/test.onigirionegai.info/php/database.inc.php(448): PDOStatement->execute(Array)
+#1 /home/onigirionegai/test.onigirionegai.info/php/login.php(66): DataBaseTable->putData(Array)
+#2 {main}
+  thrown in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php on line 448
+[07-Feb-2020 02:30:50 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1364 Field 'progress' doesn't have a default value' in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php:448
+Stack trace:
+#0 /home/onigirionegai/test.onigirionegai.info/php/database.inc.php(448): PDOStatement->execute(Array)
+#1 /home/onigirionegai/test.onigirionegai.info/php/login.php(66): DataBaseTable->putData(Array)
+#2 {main}
+  thrown in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php on line 448
+[07-Feb-2020 02:31:17 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[22007]: Invalid datetime format: 1366 Incorrect integer value: 'gg:114565731118085354720' for column `onigirionegai_dreamweaver`.`vn_users`.`token` at row 1' in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php:448
+Stack trace:
+#0 /home/onigirionegai/test.onigirionegai.info/php/database.inc.php(448): PDOStatement->execute(Array)
+#1 /home/onigirionegai/test.onigirionegai.info/php/login.php(66): DataBaseTable->putData(Array)
+#2 {main}
+  thrown in /home/onigirionegai/test.onigirionegai.info/php/database.inc.php on line 448
+[08-Feb-2020 02:15:21 UTC] PHP Fatal error:  Cannot use [] for reading in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 44
+[09-Feb-2020 20:39:34 UTC] PHP Fatal error:  Call to a member function updateData() on null in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 38
+[09-Feb-2020 20:47:24 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 33
+[09-Feb-2020 20:48:20 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 33
+[09-Feb-2020 20:48:38 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 33
+[09-Feb-2020 20:48:53 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 33
+[09-Feb-2020 20:49:18 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 33
+[09-Feb-2020 20:49:28 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/onigirionegai/test.onigirionegai.info/php/user.php:34) in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 53
+[09-Feb-2020 20:49:48 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/onigirionegai/test.onigirionegai.info/php/user.php:34) in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 53
+[09-Feb-2020 20:50:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/onigirionegai/test.onigirionegai.info/php/user.php:34) in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 53
+[09-Feb-2020 20:52:44 UTC] PHP Fatal error:  [] operator not supported for strings in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 33
+[12-Feb-2020 17:14:29 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/onigirionegai/test.onigirionegai.info/php/user.php:23) in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 61
+[12-Feb-2020 17:14:38 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/onigirionegai/test.onigirionegai.info/php/user.php:23) in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 61
+[12-Feb-2020 17:15:20 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/onigirionegai/test.onigirionegai.info/php/user.php:23) in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 61
+[12-Feb-2020 17:15:39 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/onigirionegai/test.onigirionegai.info/php/user.php:23) in /home/onigirionegai/test.onigirionegai.info/php/user.php on line 61
+[13-Feb-2020 00:31:00 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:00 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:00 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:22 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:22 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:22 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:25 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:25 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:25 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:51 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:51 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:51 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:54 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:54 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:31:54 UTC] PHP Warning:  array_column() expects parameter 1 to be array, null given in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 61
+[13-Feb-2020 00:58:04 UTC] PHP Fatal error:  Call to a member function fetchAll() on boolean in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 63
+[13-Feb-2020 00:59:43 UTC] PHP Fatal error:  Call to a member function fetch() on boolean in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 63
+[13-Feb-2020 01:02:00 UTC] PHP Warning:  PDOStatement::fetch(): SQLSTATE[HY000]: General error: No fetch class specified in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 63
+[13-Feb-2020 01:02:00 UTC] PHP Fatal error:  Call to a member function fetch() on boolean in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 64
+[13-Feb-2020 01:02:35 UTC] PHP Warning:  PDOStatement::fetch(): SQLSTATE[HY000]: General error: No fetch class specified in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 63
+[13-Feb-2020 01:02:35 UTC] PHP Warning:  PDOStatement::fetch(): SQLSTATE[HY000]: General error: No fetch class specified in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 63
+[13-Feb-2020 01:02:35 UTC] PHP Warning:  PDOStatement::fetch(): SQLSTATE[HY000]: General error: No fetch class specified in /home/onigirionegai/test.onigirionegai.info/php/data_json.php on line 63

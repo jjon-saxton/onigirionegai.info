@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/dream.dwt" codeOutsideHTMLIsLocked="false" -->
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Project:Dream☆Weaver - Yui Sakano - A Magical Girl!? - Introduction</title>
+    <!-- InstanceEndEditable -->
+    <!-- Bootstrap -->
+    <link href="../../../../css/onegai.css" rel="stylesheet">
+    <link href="../../../../images/onigirionegai_icon_196.png" rel="icon" sizes="192x192">
+    <link href="../../../../images/onigirionegai_icon_144.png" rel="icon" sizes="144x144">
+    <link href="../../../../images/onigirionegai_icon_48.png" rel="icon" sizes="48x48">
+    <link href="../../../../images/onigirionegai_icon_32.png" rel="icon" sizes="32x32">
+    <link href="../../../../images/onigirionegai_icon_16.png" rel="icon" sizes="16x16">
+    <meta name="application-name" content="OnigiriOnegai">
+    <meta name="theme-color" content="#EC95C8">
+    <script src="../../../../js/popper.min.js" language="javascript" type="text/javascript"></script>
+    <script src="../../../../js/jquery-3.3.1.min.js" language="javascript" type="text/javascript"></script>
+    <script src="../../../../js/bootstrap-4.3.1.js" language="javascript" type="text/javascript"></script>
+    <script src="../../../../js/vue.min.js" language="javascript" type="text/javascript"></script>
+  <!-- InstanceBeginEditable name="head" -->
+    <style>
+      @media screen and (min-width: 320px) and (max-width: 800px) and (orientation: portrait) {
+      html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+    }
+    body,td,th {
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+    </style>
+  <!-- InstanceEndEditable -->
+  <!-- InstanceParam name="Latest" type="boolean" value="false" -->
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-onigiri bg-onigiri">
+    <a class="navbar-brand" href="#">Onigiri☆Onegai</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="../../../../index.html">News &amp; Info</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../../dream-weaver/">Project:Dream☆Weaver</a></li>
+        <li class="nav-item"><a class="nav-link" href="//forums.onigirionegai.info">Discussion Forums</a></li>
+      </ul>
+      <a href="https://www.patreon.com/bePatron?u=29802411" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    </div>
+  </nav>
+  <div class="modal" id="TargetModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Old Modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <section id="body"><!-- InstanceBeginEditable name="MainBody" -->
+  <div class="container full-width">
+    <script src="../../../../js/scene.js" language="javascript"></script>
+    <div class="dropdown">
+      <h1 title="A Magical Girl!?" class="dropdown-toggle" id="usrMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="#End">Chapter 1</a>
+      </h1>
+      <div id="usrMenu" class="dropdown-menu" aria-labelledby="usrMenuBtn">
+        <a v-if="user.username" class="dropdown-item" :href="'//forums.onigirionegai.info/memberlist.php?mode=viewprofile&u='+user.user_id+'&sid='+user.session_id" title="view your profile">Welcome {{ user.username }}!</a>
+        <a v-else class="dropdown-item" href="https://forums.onigirionegai.info/ucp.php?mode=login&redirect=/home.php?path=project/dream-weaver">Login</a>
+        <section id="UserArea" v-if="user.level<5">
+          <a class="dropdown-item" href="//forums.onigirionegai.info/ucp.php">User Control Panel</a>
+          <a class="dropdown-item" href="#">Current Progress</a>
+        </section>
+        <section id="StaffArea" v-if="user.level==1">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/mcp.php?i=main&mode=front&sid='+user.session_id">Moderator Control Panel</a>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/adm/index.php?sid='+user.session_id">Forum Administration</a>
+          <a class="dropdown-item" href="//onigirionegai.info/phpmyadmin">VN Database Management</a>
+        </section>
+        <div class="dropdown-divider"></div>
+        <a id="skipBtn" class="dropdown-item" href="#End">Skip</a>
+        <a id="logBtn" accesskey="s" class="dropdown-item" href="#">Scene Log</a>
+        <section id="Logout" v-if="user.username">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/ucp.php?mode=logout&redirect=/home.php?path=project/dream-weaver\&sid='+user.session_id">Logout</a>
+        </section>
+      </div>
+    <script language="javascript" type="application/javascript">
+      var app= new Vue({
+        el:'#usrMenu',
+        data:{
+          user: []
+        },
+        created(){
+          fetch('../../../../php/user.php?action=getname')
+          .then(response => response.json())
+          .then(json => {
+            this.user = json
+          });
+        }
+      });
+    </script>
+    <div class="row scene">
+      <div id="1" class="panel-lt" style="background-image: url('../../images/backgrounds/locations/seven-hearts-annex_daytime-spring.png')">
+        <div id="1-1" class="text caption">
+          <p id="1-1-1">At first glance Seven Hearts Academy looked like a nice enough place, especially in spring. The school was basically surrounded by beautiful cherry trees. You could see them from just about anywhere. I liked those trees, but the school...</p>
+        </div>
+      </div>
+      <div id="2" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/seven-hearts-classroom.png')">
+        <div id="2-1" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/ptg5-neutral_uniform.png" alt="Classmate A (a girl with pigtails)">
+          <img class="actor right" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate B (a girl with short-hair)">
+          <p id="2-1-1" class="src-left"><span class="name">Classmate A</span>She&#39;s here!</p>
+          <p id="2-1-2" class="src-right"><span class="name">Classmate B</span>I can&#39;t believe she showed up.</p>
+        </div>
+        <div id="2-2" class="text narration">
+          <p id="2-2-1">The school was far less pleasant.</p>
+          <p id="2-2-2">I know a lot of kids say that. Not very many kids actually like school, but, for me...</p>
+        </div>
+        <div id="2-3" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/ptg5-neutral_uniform.png" alt="Classmate A (a girl with pigtails)">
+          <img class="actor right" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate B (a girl with short-hair)">
+          <p id="2-3-1" class="src-left"><span class="name">Classmate A</span>Yeah, after what we did to her yesterday, I figured she&#39;d just stay at home.</p>
+          <p id="2-3-2" class="src-right"><span class="name">Classmate B</span>Maybe she <em>likes</em> it!</p>
+        </div>
+        <div id="2-4" class="text narration">
+          <p id="2-4-1">For me Seven Hearts Academy was like a torture chamber. One I was forced to go into with a smile almost everyday. And one I came out of not knowing why I even bothered showing up in the first place.</p>
+        </div>
+        <div id="2-5" class="text caption">
+          <img class="actor center" src="../../images/actors/girls/yui-neutral_sgs.png" alt="Yui in summer school uniform">
+          <p id="2-5-1">My name is Yui Sakano I'm a fifth-grader at one of the most famous schools in the entire country, Seven Hearts Academy.</p>
+          <p id="2-5-2">Ever since I was really little I've had a hard time talking with other kids my age. No matter what I said or how I said it I never seemed to really say what I meant to say.</p>
+          <p id="2-5-3">So I never made any friends.</p>
+          <p id="2-5-4">This year, daddy enrolled me here. He hoped it would be a new start for me.</p>
+          <p id="2-5-5">It wasn't. . .</p>
+        </div>
+      </div>
+      <div id="3" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/seven-hearts-classroom.png')">
+        <div id="3-1" class="text dialogue">
+        <p id="3-1-1"><span class="name">Teacher</span>Class, we have a new student. Would you come in and introduce yourself?</p>
+        </div>
+        <div id="3-2" class="text dialogue">
+          <img class="actor center" src="../../images/actors/girls/yui-neutral_sgs.png" alt="Yui in school girl summer uniform">
+          <p id="3-2-1"><span class="name">Yui</span><small>I'm Y-yui... Y-yui S-sakano.</small></p>
+          <p id="3-2-2"><span class="name">Yui</span><em>*sigh*</em></p>
+        </div>
+        <div id="3-3" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate B (a girl with short hair)">
+          <p id="3-3-1" class="src-left"><span class="name">Classmate B</span>What kind of introduction was that?</p>
+        </div>
+        <div id="3-4" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate B (a girl with short hair)">
+          <img class="actor right" src="../../images/actors/misc/ptg5-neutral_uniform.png" alt="Classmate A (a girl with pig-tails)">
+          <p id="3-4-1" class="src-right"><span class="name">Classmate A</span>Seriously! I can barely hear her! What was her name again!?</p>
+        </div>
+        <div id="3-5" class="text narration">
+          <p id="3-5-1">Just by introducing myself, I knew things at this school wouldn't be any different.</p>
+        </div>
+      </div>
+      <div id="4" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/seven-hearts-classroom.png')">
+        <div id="4-1" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate (a girl with short hair)">
+          <p id="4-1-1" class="src-left"><span class="name">Classmate</span>Hey Yui-chan! It was Yui, right?</p>
+        </div>
+        <div id="4-2" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate (a girl with short hair)">
+          <img class="actor right" src="../../images/actors/girls/yui-neutral_sgs.png" alt="Yui in summer school girl uniform">
+          <p id="4-2-1" class="src-right"><span class="name">Yui</span>...</p>
+          <p id="4-2-2" class="src-left"><span class="name">Classmate</span><em>(Did I get her name wrong?)</em></p>
+          <p id="4-2-3" class="src-left"><span class="name">Classmate</span>Hello, Yui-chan!? You there!?</p>
+        </div>
+        <div id="4-3" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate (a girl with short hair)">
+          <img class="actor right" src="../../images/actors/girls/yui-surprised_sgs.png" alt="A surprised Yui in summer school girl uniform">
+          <p id="4-3-1" class="src-right"><span class="name">Yui</span>...Huh!? Sorry, were you talking to me?</p>
+          <p id="4-3-2" class="src-left"><span class="name">Classmate</span>You are Yui-chan, right? I mean, your name <em>is</em> Yui... right?</p>
+        </div>
+        <div id="4-4" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate (a girl with short hair)">
+          <img class="actor right" src="../../images/actors/girls/yui-worried_sgs.png" alt="A worried Yui in summer school girl uniform">
+          <p id="4-4-1" class="src-right"><span class="name">Yui</span>Yui Sakano, did you need something from me?</p>
+          <p id="4-4-2" class="src-left"><span class="name">Classmate</span><em>(What's with the attitude?)</em></p>
+          <p id="4-4-3" class="src-left"><span class="name">Classmate</span>No, I mean, not really. I just wanted to talk.</p>
+        </div>
+        <div id="4-5" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate (a girl with short hair)">
+          <img class="actor right" src="../../images/actors/girls/yui-neutral_sgs.png" alt="Yui in summer school girl uniform">
+          <p id="4-5-1" class="src-right"><span class="name">Yui</span><small>Oh. . .</small></p>
+          <p id="4-5-2" class="src-left"><span class="name">Classmate</span><em>(No need to seem so disappointed)</em></p>
+          <p id="4-5-3" class="src-right"><span class="name">Yui</span>...</p>
+          <p id="4-5-4" class="src-left"><span class="name">Classmate</span><em>(Is it because I needed to make sure I got her name right?)</em></p>
+          <p id="4-5-5" class="src-left"><span class="name">Classmate</span><em>(Its not my fault she was so quiet!)</em></p>
+          <p id="4-5-6" class="src-left"><span class="name">Classmate</span>...</p>
+          <p id="4-5-7" class="src-left"><span class="name">Classmate</span>Do you like Phantasy Quest?</p>
+          <p id="4-5-8" class="src-right"><span class="name">Yui</span>...</p>
+          <p id="4-5-9" class="src-right"><span class="name">Yui</span>...</p>
+          <p id="4-5-10" class="src-right"><span class="name">Yui</span>I'm not a fan of anime.</p>
+          <p id="4-5-11" class="src-left"><span class="name">Classmate</span>...</p>
+          <p id="4-5-12" class="src-left"><span class="name">Classmate</span>Its an MMO.</p>
+          <p id="4-5-13" class="src-right"><span class="name">Yui</span>... ... ...</p>
+          <p id="4-5-14" class="src-right"><span class="name">Yui</span>MMO? Like a video game?</p>
+          <p id="4-5-15" class="src-left"><span class="name">Classmate</span>Yeah, just like that!</p>
+          <p id="4-5-16" class="src-right"><span class="name">Yui</span>I sometimes play my brother's PlayBox, but I don't think he has that game.</p>
+          <p id="4-5-17" class="src-left"><span class="name">Classmate</span>It a PC game...How do you not know that!? Phantasy Quest is really popular, you know!?</p>
+          <p id="4-5-18" class="src-right"><span class="name">Yui</span>I'm not good with computers.</p>
+          <p id="4-5-19" class="src-left"><span class="name">Classmate</span>Seriously!?</p>
+          <p id="4-5-20" class="src-left"><span class="name">Classmate</span>I suppose now you'll tell me you don't have a cellphone.</p>
+        </div>
+        <div id="4-6" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate (a girl with short hair)">
+          <img class="actor right" src="../../images/actors/girls/yui-worried_sgs.png" alt="A worried Yui in summer school girl uniform">
+          <p id="4-6-1" class="src-right"><span class="name">Yui</span>I can text. Did you want my number?</p>
+          <p id="4-6-2" class="src-left"><span class="name">Classmate</span>No! I mean, I don't want <em>anything</em> from you, I just thought I'd <em>try</em> and get to know you. You know, be nice!</p>
+        </div>
+        <div id="4-7" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate (a girl with short hair)">
+          <img class="actor right" src="../../images/actors/girls/yui-surprised_sgs.png" alt="A surprised Yui in summer school girl uniform">
+          <p id="4-7-1" class="src-right"><span class="name">Yui</span><em>(Well, that was quick)</em></p>
+          <p id="4-7-2" class="src-right"><span class="name">Yui</span><small>Oh...sorry, I...</small></p>
+          <p id="4-7-3" class="src-left"><span class="name">Classmate</span>Don't bother. I won't bother you again.</p>
+        </div>
+        <div id="4-8" class="text dialogue">
+          <img class="actor left" src="../../images/actors/misc/shg5-neutral_uniform.png" alt="Classmate (a girl with short hair)">
+          <img class="actor right" src="../../images/actors/girls/yui-neutral_sgs.png" alt="Yui in summer school girl uniform">
+          <p id="4-8-1" class="src-right"><span class="name">Yui</span><small>Oh...okay...didn't mean to waste your time.</small></p>
+          <p id="4-8-2" class="src-left"><span class="name">Classmate</span><em>(Seriously!? What <strong>is</strong> this girl's problem!)</em></p>
+        </div>
+      </div>
+      <div id="5" class="panel-lt" style="background-image: url('../../images/backgrounds/locations/seven-hearts-annex_daytime-spring.png')">
+        <div id="5-1" class="text caption">
+          <p id="5-1-1">I really don't know what I said, or did. Things always just seemed to spiral down like that any time I opened my mouth.</p>
+        </div>
+      </div>
+      <div id="6" class="panel-lt" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1_01.png')">
+        <div id="6-1" class="text caption">
+          <p id="6-1-1">Kids could be very cruel.</p>
+          <p id="6-1-2">Usually they didn't do anything to hurt me, but they would go out their way to try and humliate me.</p>
+        </div>
+      </div>
+      <div id="7" class="panel-lt" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1_02.png')">
+        <div id="7-1" class="text caption">
+          <p id="7-1-1">I really didn&#39;t know what I had done to diserve this, and I didn&#39;t really care.</p>
+          <p id="7-1-2">At the very least, things used to be different when I got home.</p>
+          <p id="7-1-3">They <em>used</em> to be different.</p>
+        </div>
+      </div>
+      <div id="8" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/yui-house-front_evening.png')">
+        <div id="8-1" class="text caption">
+          <p id="8-1-1">At home, I once had a kind older half-brother, an understanding father, and a mother who always seemed to know just what to say.</p>
+          <p id="8-1-2">Whether I spoke German or Japanese, everyone at home always seemed to know what I meant to say, even if I didn&#39;t use the right words, or the right tone. They could always tell.</p>
+          <p id="8-1-3">At home, I used to be happy. I didn&#39;t have to worry about what was going to happen. I didn&#39;t have to worry about anything. All daddy expected was that I help with dinner and dishes. Mom just wanted me to put my own laundry in the machine each Sunday and do my homework each night. My brother just wanted to talk or play games with me.</p>
+          <p id="8-1-4">That&#39;s just how it was until one night when my dad didn&#39;t come home. . .</p>
+        </div>
+      </div>
+      <div id="9" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/yui-house_bar_bottles.png')">
+        <div id="9-1" class="text narration">
+          <p id="9-1-1">Not long after I made my failed introduction to my new classmates my dad died. Mom didn&#39;t tell me how he died just that he did.</p>
+          <p id="9-1-2">We held a memorial service, my brother cried.</p>
+          <p id="9-1-3">I never saw him cry before.</p>
+          <p id="9-1-4">Since then, when I got home, mom was still out. When she was home, she wasn&#39;t far from a bottle.</p>
+          <p id="9-1-5">My brother was hit hard too, but he didn&#39;t abandon me.</p>
+          <p id="9-1-6">He was still there...</p>
+          <p id="9-1-7">still wanting to talk...</p>
+          <p id="9-1-8">usually about daddy.</p>
+          <p id="9-1-9">When he didn&#39;t want to talk, we played games together.</p>
+        </div>
+      </div>
+      <div id="10" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/yui-bedroom_night-lit.png')">
+        <div id="10-1" class="text caption">
+          <img class="actor center" src="../../images/actors/girls/yui-neutral_pjs.png" alt="Yui in summer pjs">
+          <p id="10-1-1">School sucked!</p>
+          <p id="10-1-2">My brother wasn&#39;t always home when I got home.</p>
+          <p id="10-1-3">Mom hardly ever got home before I went to bed.</p>
+          <p id="10-1-4">I was lonely.</p>
+          <p id="10-1-5">I wondered what I was, why I was alive. I even wondered if there was any point in living. I never thought about ending my life.</p>
+          <p id="10-1-6">Well, not at first anyway...</p>
+        </div>
+      </div>
+      <div id="End" class="panel-home" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1_03.png')">
+        <div class="text narration chapter">
+          <p>--Chapter 1: A Magical Girl!?--</p>
+        </div>
+      </div>
+      <div id="Index" class="panel-home" style="background-image: url('../../images/backgrounds/locations/yui-bedroom_night-dark.png')">
+        <div class="choice acts">
+          <img src="../../images/actors/girls/yui-worried_pjs.png" alt="Yui in summer pjs">
+          <ul>
+            <li><h2>Chapter 1: A Magical Gir!?</h2></li>
+            <li v-for="ep in eps"><a :href="'./ep'+ep.num+'.html'" class="btn btn-primary" :class="{ 'disabled': ep.locked }">Episode {{ ep.num }}: {{ ep.title }}</a></li>
+          </ul>
+        </div>
+      </div>
+      <script language="javascript" type="text/javascript">
+      var app= new Vue({
+        el:'#Index',
+        data:{
+          eps: []
+        },
+        created(){
+          fetch("../../../../php/data_json.php?table=episodes&q=pid:`= 1`")
+          .then(response => response.json())
+          .then(json => {
+            this.eps = json
+          })
+        }
+      });
+      </script>
+    </div>
+  </div>
+  <!-- InstanceEndEditable -->
+  </section>
+  </body>
+<!-- InstanceEnd --></html>

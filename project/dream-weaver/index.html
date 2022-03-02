@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/dream.dwt" codeOutsideHTMLIsLocked="false" -->
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Project:Dream☆Weaver</title>
+    <!-- InstanceEndEditable -->
+    <!-- Bootstrap -->
+    <link href="../../css/onegai.css" rel="stylesheet">
+    <link href="../../images/onigirionegai_icon_196.png" rel="icon" sizes="192x192">
+    <link href="../../images/onigirionegai_icon_144.png" rel="icon" sizes="144x144">
+    <link href="../../images/onigirionegai_icon_48.png" rel="icon" sizes="48x48">
+    <link href="../../images/onigirionegai_icon_32.png" rel="icon" sizes="32x32">
+    <link href="../../images/onigirionegai_icon_16.png" rel="icon" sizes="16x16">
+    <meta name="application-name" content="OnigiriOnegai">
+    <meta name="theme-color" content="#EC95C8">
+    <script src="../../js/popper.min.js" language="javascript" type="text/javascript"></script>
+    <script src="../../js/jquery-3.3.1.min.js" language="javascript" type="text/javascript"></script>
+    <script src="../../js/bootstrap-4.3.1.js" language="javascript" type="text/javascript"></script>
+    <script src="../../js/vue.min.js" language="javascript" type="text/javascript"></script>
+  <!-- InstanceBeginEditable name="head" -->
+    <style>
+      @media screen and (min-width: 320px) and (max-width: 800px) and (orientation: portrait) {
+      html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+    }
+    body,td,th {
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+    </style>
+  <!-- InstanceEndEditable -->
+  <!-- InstanceParam name="Latest" type="boolean" value="false" -->
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-onigiri bg-onigiri">
+    <a class="navbar-brand" href="#">Onigiri☆Onegai</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="../../index.html">News &amp; Info</a></li>
+        <li class="nav-item"><a class="nav-link" href="../dream-weaver/">Project:Dream☆Weaver</a></li>
+        <li class="nav-item"><a class="nav-link" href="//forums.onigirionegai.info">Discussion Forums</a></li>
+      </ul>
+      <a href="https://www.patreon.com/bePatron?u=29802411" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    </div>
+  </nav>
+  <div class="modal" id="TargetModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Old Modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <section id="body"><!-- InstanceBeginEditable name="MainBody" -->
+  <div class="container full-width">
+    <script src="../../js/scene.js" language="javascript"></script>
+    <div class="dropdown">
+      <h1 title="Project:Dream☆Weaver" class="dropdown-toggle" id="usrMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="#End">Welcome!</a>
+      </h1>
+      <div id="usrMenu" class="dropdown-menu" aria-labelledby="usrMenuBtn">
+        <a v-if="user.username" class="dropdown-item" :href="'//forums.onigirionegai.info/memberlist.php?mode=viewprofile&u='+user.user_id+'&sid='+user.session_id" title="view your profile">Welcome {{ user.username }}!</a>
+        <a v-else class="dropdown-item" href="https://forums.onigirionegai.info/ucp.php?mode=login&redirect=/home.php?path=project/dream-weaver">Login</a>
+        <section id="UserArea" v-if="user.level<5">
+          <a class="dropdown-item" href="//forums.onigirionegai.info/ucp.php">User Control Panel</a>
+          <a class="dropdown-item" href="#">Current Progress</a>
+        </section>
+        <section id="StaffArea" v-if="user.level==1">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/mcp.php?i=main&mode=front&sid='+user.session_id">Moderator Control Panel</a>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/adm/index.php?sid='+user.session_id">Forum Administration</a>
+          <a class="dropdown-item" href="//onigirionegai.info/phpmyadmin">VN Database Management</a>
+        </section>
+        <div class="dropdown-divider"></div>
+        <a id="skipBtn" class="dropdown-item" href="#End">Skip</a>
+        <a id="logBtn" accesskey="s" class="dropdown-item" href="#">Scene Log</a>
+        <section id="Logout" v-if="user.username">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/ucp.php?mode=logout&redirect=/home.php?path=project/dream-weaver\&sid='+user.session_id">Logout</a>
+        </section>
+      </div>
+    </div>
+    <script language="javascript" type="application/javascript">
+      var app= new Vue({
+        el:'#usrMenu',
+        data:{
+          user: []
+        },
+        created(){
+          fetch('../../../../php/user.php?action=getname')
+          .then(response => response.json())
+          .then(json => {
+            this.user = json
+          });
+        }
+      });
+      
+      $(function(){
+        $.get('../../php/data_json.php?table=characters',function (data){
+          data.forEach(function(item){
+            var name=item.gname.toLowerCase();
+            var id=item.gname+item.sname;
+            
+            data[name]=item.actor_samples.split(',');
+            
+            var size=data[name].length;
+            var index=Math.floor(size*Math.random());
+            
+            $("#"+id+" img").attr('src',data[name][index]);
+          })
+        });
+      })
+    </script>
+    <div id="CharaList" class="row scene">
+      <div id="Intro" class="panel-lt">
+        <!-- placeholder for an intro movie
+        <div class="movie intro">
+        </div>
+        -->
+        <div id="I-1" class="text dialogue">
+          <img class="actor center" src="./images/actors/misc/ptg5-neutral_uniform.png" alt="Generic grade schooler with pigtails">
+          <p id="I-1-1" style="display:block"><span class="name">A-Ko</span>Have you heard? Have you heard? Its the latest news straight out of Sakura!</p>
+        </div>
+        <div id="I-2" class="text dialogue">
+          <img class="actor center" src="./images/actors/misc/shg5-neutral_uniform.png" alt="Generic grade schooler with short hair">
+          <p id="I-2-1"><span class="name">B-Ko</span>Oooh! Oooh! What is it? What is it?</p>
+        </div>
+        <div id="I-3" class="text dialogue">
+          <img class="actor left" src="./images/actors/misc/ptg5-neutral_uniform.png" alt="Generic grade schooler with pigtails">
+          <img class="actor right" src="./images/actors/misc/shg5-neutral_uniform.png" alt="Generic grade schooler with short hair">
+          <p id="I-3-1" class="src-left"><span class="name">A-Ko</span>Young girls who have lost all hope will be visited by a <span class="term">special spirit</span> who will grant them the power they need to regain their lost hope and even get everything they want!</p>
+          <p id="I-3-2" class="src-right"><span class="name">B-Ko</span>That sounds awesome! Where do I sign up!?</p>
+          <p id="I-3-3" class="src-left"><span class="name">A-Ko</span>You're not still hung up over that stupid boy are you?</p>
+          <p id="I-3-4" class="src-left"><span class="name">A-Ko</span>I told you, you're too good for him!</p>
+          <p id="I-3-5" class="src-right"><span class="name">B-Ko</span>This has nothing to do with him! It just sounds awesome!</p>
+          <p id="I-3-6" class="src-left"><span class="name">A-Ko</span>Well, I hear, and this really is just a rumor, but I hear these <span class="term">spirits</span> don't appear to just any girl!</p>
+          <p id="I-3-7" class="src-right"><span class="name">B-Ko</span>They don't? Well that's a bummer!</p>
+          <p id="I-3-8" class="src-left"><span class="name">A-Ko</span>Well, there <em>might</em> be hope for you.</p>
+          <p id="I-3-9" class="src-right"><span class="name">B-Ko</span>Really? How?</p>
+          <p id="I-3-10" class="src-left"><span class="name">A-Ko</span>Apparently a <span class="term">spirit</span> will appear to a girl with a broken heart! <em>*laugh*</em></p>
+          <p id="I-3-11" class="src-right"><span class="name">B-Ko</span>Don't even joke about that! Geeze!</p>
+        </div>
+        <div class="text info">
+          <p>Welcome! You are about to embark on a complex journey told through the perspective of several girls.</p>
+          <p>Each girl is visisted by a <span class="term">special spirit</span> who changes their lives.</p>
+          <p>You will begin with the stories of two girls, but you will meet more girls as you go. Try and unlock them all to uncover the whole story.</p>
+          <p>I hope you enjoy this story! If you haven't already, use the menu at the top right (the down-facing arrow) to <a data-toggle="modal" data-target="#TargetModal" href="#">Log in</a> so I can keep track of your progress. You can also use this menu at anytime to skip this intro and any other scenes!</p>
+        </div>
+      </div>
+      <div id="End" class="panel-home">
+        <div class="choice character">
+          <div class="select-grid">
+            <div :id="'c-'+item.num" class="select" v-for="item in charas" v-bind:class="{ 'locked': item.locked }">
+              <a :href="'#'+item.gname+item.sname" :title="item.gname+' '+item.sname"><img :src="'./images/selections/'+item.gname.toLowerCase()+'-1.png'" :alt="item.gname+' '+item.sname"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div :id="item.gname+item.sname" class="panel-home" v-for="item in charas">
+        <div class="choice character-info">
+          <img :alt="item.gname+' '+item.sname">
+          <div>
+            <h2>{{item.gname}} {{item.sname}}</h2>
+            <section v-html="item.bio"></section>
+            <h2>Story</h2>
+            <chapters :cid="item.num">    
+              <ul slot-scope="{ data }">
+                <li v-for="ch in data"><a :href="'./'+item.gname.toLowerCase()+'/c'+ch.num" class="btn btn-primary" :class="{ 'disabled': ch.locked}">Chapter {{ch.num}}: {{ ch.title }}</a></li>
+              </ul>
+            </chapters>
+          </div>
+        </div>
+      </div>
+      <script>
+      var app= new Vue({
+        el:'#CharaList',
+        data:{
+          charas: []
+        },
+        created(){
+          fetch('../../php/data_json.php?table=characters')
+          .then(response => response.json())
+          .then(json => {
+            this.charas = json
+          })
+        }
+      });
+      Vue.component('chapters', {
+        props: ['cid'],
+        data: () => ({
+          list: []
+        }),
+        created(){
+          fetch("../../php/data_json.php?table=chapters&q=cid:`= "+this.cid+"`")
+          .then(response => response.json())
+          .then(json => {
+            this.list = json
+          })
+        },
+        render() {
+          return this.$scopedSlots.default({
+            data: this.list
+          });
+        }
+      })
+      </script>
+    </div>
+  </div>
+  <!-- InstanceEndEditable -->
+  </section>
+  </body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/dream.dwt" codeOutsideHTMLIsLocked="false" -->
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Project:Dream☆Weaver - Yui Sakano - A Magical Girl!? - Labryinth of Nightmares</title>
+    <!-- InstanceEndEditable -->
+    <!-- Bootstrap -->
+    <link href="../../../../css/onegai.css" rel="stylesheet">
+    <link href="../../../../images/onigirionegai_icon_196.png" rel="icon" sizes="192x192">
+    <link href="../../../../images/onigirionegai_icon_144.png" rel="icon" sizes="144x144">
+    <link href="../../../../images/onigirionegai_icon_48.png" rel="icon" sizes="48x48">
+    <link href="../../../../images/onigirionegai_icon_32.png" rel="icon" sizes="32x32">
+    <link href="../../../../images/onigirionegai_icon_16.png" rel="icon" sizes="16x16">
+    <meta name="application-name" content="OnigiriOnegai">
+    <meta name="theme-color" content="#EC95C8">
+    <script src="../../../../js/popper.min.js" language="javascript" type="text/javascript"></script>
+    <script src="../../../../js/jquery-3.3.1.min.js" language="javascript" type="text/javascript"></script>
+    <script src="../../../../js/bootstrap-4.3.1.js" language="javascript" type="text/javascript"></script>
+    <script src="../../../../js/vue.min.js" language="javascript" type="text/javascript"></script>
+  <!-- InstanceBeginEditable name="head" -->
+    <style>
+      @media screen and (min-width: 320px) and (max-width: 800px) and (orientation: portrait) {
+      html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+    }
+    body,td,th {
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+    </style>
+  <!-- InstanceEndEditable -->
+  <!-- InstanceParam name="Latest" type="boolean" value="false" -->
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-onigiri bg-onigiri">
+    <a class="navbar-brand" href="#">Onigiri☆Onegai</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="../../../../index.html">News &amp; Info</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../../dream-weaver/">Project:Dream☆Weaver</a></li>
+        <li class="nav-item"><a class="nav-link" href="//forums.onigirionegai.info">Discussion Forums</a></li>
+      </ul>
+      <a href="https://www.patreon.com/bePatron?u=29802411" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    </div>
+  </nav>
+  <div class="modal" id="TargetModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Old Modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <section id="body"><!-- InstanceBeginEditable name="MainBody" -->
+  <div class="container full-width">
+    <script src="../../../../js/scene.js" language="javascript"></script>
+    <div class="dropdown">
+      <h1 title="Labyrinth of Nightmares" class="dropdown-toggle" id="usrMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="#End">Episode 3</a>
+      </h1>
+      <div id="usrMenu" class="dropdown-menu" aria-labelledby="usrMenuBtn">
+        <a v-if="user.username" class="dropdown-item" :href="'//forums.onigirionegai.info/memberlist.php?mode=viewprofile&u='+user.user_id+'&sid='+user.session_id" title="view your profile">Welcome {{ user.username }}!</a>
+        <a v-else class="dropdown-item" href="https://forums.onigirionegai.info/ucp.php?mode=login&redirect=/home.php?path=project/dream-weaver">Login</a>
+        <section id="UserArea" v-if="user.level<5">
+          <a class="dropdown-item" href="//forums.onigirionegai.info/ucp.php">User Control Panel</a>
+          <a class="dropdown-item" href="#">Current Progress</a>
+        </section>
+        <section id="StaffArea" v-if="user.level==1">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/mcp.php?i=main&mode=front&sid='+user.session_id">Moderator Control Panel</a>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/adm/index.php?sid='+user.session_id">Forum Administration</a>
+          <a class="dropdown-item" href="//onigirionegai.info/phpmyadmin">VN Database Management</a>
+        </section>
+        <div class="dropdown-divider"></div>
+        <a id="skipBtn" class="dropdown-item" href="#End">Skip</a>
+        <a id="logBtn" accesskey="s" class="dropdown-item" href="#">Scene Log</a>
+        <section id="Logout" v-if="user.username">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" :href="'https://forums.onigirionegai.info/ucp.php?mode=logout&redirect=/home.php?path=project/dream-weaver\&sid='+user.session_id">Logout</a>
+        </section>
+      </div>
+    <script language="javascript" type="application/javascript">
+      var app= new Vue({
+        el:'#usrMenu',
+        data:{
+          user: []
+        },
+        created(){
+          fetch('../../../../php/user.php?action=getname')
+          .then(response => response.json())
+          .then(json => {
+            this.user = json
+          });
+        }
+      });
+    </script>
+    <div class="row scene">
+      <div id="1" class="panel-dk" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1a3_01.png')">
+        <div id="1-1" class="text narration">
+          <p id="1-1-1">I ran upstairs as quickly as my legs would take me.</p>
+          <p id="1-1-2">I could still hear my mother and brother yelling from down stairs, but I couldn&#39;t understand what they were saying anymore.</p>
+          <p id="1-1-3">I knew it was about me.</p>
+          <p id="1-1-4">I sat at my desk and pulled the drawer open.</p>
+        </div>
+        <div id="1-2" class="text caption">
+          <p id="1-2-1"><em>(If I was gone, would everything be okay?)</em></p>
+        </div>
+        <div id="1-3" class="text narration">
+          <p id="1-3-1">As the thought came into my mind, I pulled a knife from the drawer.</p>
+          <p id="1-3-2">It wasn't big, it was just a small cutter used for art projects, but maybe it would be enough...</p>
+          <p id="1-3-3"><em>*click* *click*</em></p>
+        </div>
+        <div id="1-4" class="text caption">
+          <p id="1-4-1">If I was dead, maybe, just maybe, everything would be fine...</p>
+        </div>
+      </div>
+      <div id="2" class="panel-dk" style="background-image: url('../../images/backgrounds/heartseeds/yui_broken.png')">
+        <div id="2-1" class="text narration">
+          <p id="2-1-1">I pushed the blade to my wrist.</p>
+          <p id="2-1-2">I winced at the sharp pain.</p>
+          <p id="2-1-3">Blood began to drip from the new wound forming just beneath the blade.</p>
+          <p id="2-1-4">I took a deep breath.</p>
+        </div>
+      </div>
+      <div id="3" class="panel-dk" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1a3_02.png')">
+        <div id="3-1" class="text caption">
+          <p id="3-1-1"><span class="name">-Mysterious Creature-</span>Your heart is broken...</p>
+          <p id="3-1-2"><span class="name">-Mysterious Creature-</span>But that doesn&#39;t mean your life is over.</p>
+        </div>
+      </div>
+      <div id="4" class="panel-dk" style="background-image: url('../../images/backgrounds/locations/yui-bedroom_evening-dark.png')">
+        <div id="4-1" class="text dialogue">
+          <img class="actor left" src="../../images/actors/girls/yui-surprised_sgs.png" alt="A surprised Yui in her summer school uniform">
+          <img class="actor right" src="../../images/actors/kitsune/naoko-1f_neutral.png" alt="A mysterious fox-like creature, white with pink and blue stripes">
+          <p id="4-1-1" class="src-left"><span class="name">Yui</span>W-who are you?</p>
+          <p id="4-1-2" class="src-right"><span class="name">Mysterious Creature</span>I'm what some might call a <span class="term" title="a type of demigod fox, or fox-spirit.">kitsune</span>.</p>
+          <p id="4-1-3" class="src-right"><span class="name">White Kitsune</span>I&#39;ve been watching you.</p>
+        </div>
+        <div id="4-2" class="text dialogue">
+          <img class="actor left" src="../../images/actors/girls/yui-worried_sgs.png" alt="A worried Yui in her summer school uniform">
+          <img class="actor right" src="../../images/actors/kitsune/naoko-1f_neutral.png" alt="A mysterious fox-like creature, white with pink and blue stripes">
+          <p id="4-2-1" class="src-left"><span class="name">Yui</span>Y-you&#39;ve been watching me?</p>
+          <p id="4-2-2" class="src-right"><span class="name">White Kitsune</span>Kids can be very cruel.</p>
+          <p id="4-2-3" class="src-right"><span class="name">White Kitsune</span>I don&#39;t have to tell <em>you</em> that though.</p>
+          <p id="4-2-4" class="src-left"><span class="name">Yui</span>What do you want from me?</p>
+          <p id="4-2-5" class="src-right"><span class="name">White Kitsune</span>You misunderstand, Miss Yui Sakano. There isn&#39;t anything I want from you, rather, I have a gift for you.</p>
+        </div>
+        <div id="4-3" class="text dialogue">
+          <img class="actor left" src="../../images/actors/girls/yui-surprised_sgs.png" alt="A surprised Yui in her summer school uniform">
+          <img class="actor right" src="../../images/actors/kitsune/naoko-1f_neutral.png" alt="A mysterious fox-like creature, white with pink and blue stripes">
+          <p id="4-3-1" class="src-left"><span class="name">Yui</span>A gift?</p>
+          <p id="4-3-2" class="src-right"><span class="name">White Kitsune</span>You have a hard life, but I can grant you the power to change that.</p>
+          <p id="4-3-3" class="src-left"><span class="name">Yui</span>Power?</p>
+          <p id="4-3-4" class="src-right"><span class="name">White Kitsune</span>Yes, enough power for you to grasp all that you desire.</p>
+        </div>
+        <div id="4-4" class="text dialogue">
+          <img class="actor left" src="../../images/actors/girls/yui-neutral_sgs.png" alt="Yui in her summer school uniform">
+          <img class="actor right" src="../../images/actors/kitsune/naoko-1f_neutral.png" alt="A mysterious fox-like creature, white with pink and blue stripes">
+          <p id="4-4-1" class="src-left"><span class="name">Yui</span>To grasp all that I desire?</p>
+          <p id="4-4-2" class="src-right"><span class="name">White Kitsune</span>Yes, Miss Yui, whatever you want it will be within your power to get it. So, Miss Yui Sakano, what is it that you desire?</p>
+        </div>
+        <div id="4-5" class="text dialogue">
+          <img class="actor left" src="../../images/actors/girls/yui-neutral-tears_sgs.png" alt="Yui, tearing up, in her summer school uniform">
+          <img class="actor right" src="../../images/actors/kitsune/naoko-1f_neutral.png" alt="A mysterious fox-like creature, white with pink and blue stripes">
+          <p id="4-5-1" class="src-left"><span class="name">Yui</span>I want my mom to be my mom again. I want everyone to stop picking on me at school...</p>
+          <p id="4-5-2" class="src-left"><span class="name">Yui</span>I want my dad back...</p>
+          <p id="4-5-3" class="src-right"><span class="name">White Kitsune</span>You have a lot of potential, but I&#39;m afraid it isn&#39;t enough to bring someone back to life or change the past.</p>
+          <p id="4-5-4" class="src-left"><span class="name">Yui</span>I&#39;ll be happy just as long as my mom goes back to how she was.</p>
+          <p id="4-5-5" class="src-left"><span class="name">White Kitsune</span>Changing a person is hard, but, if you can root out the reason she changed in the first place, I believe you can get her back.</p>
+          <p id="4-5-6" class="src-left"><span class="name">White Kitsune</span>In other words, that&#39;s something I can give you the power to do.</p>
+          <p id="4-5-7" class="src-left"><span class="name">White Kitsune</span>So, Miss Yui Sakano, will you make a contract with me?</p>
+        </div>
+        <div id="4-6" class="text dialogue">
+          <img class="actor left" src="../../images/actors/girls/yui-worried_sgs.png" alt="A worried Yui in her summer school uniform">
+          <img class="actor right" src="../../images/actors/kitsune/naoko-1f_neutral.png" alt="A mysterious fox-like creature, white with pink and blue stripes">
+          <p id="4-6-1" class="src-left"><span class="name">Yui</span>A contract?</p>
+          <p id="4-6-2" class="src-right"><span class="name">White Kitsune</span>Yes. With a contract I&#39;ll be bound to help you, but, you must also help me.</p>
+          <p id="4-6-3" class="src-left"><span class="name">Yui</span>Help you with what?</p>
+          <p id="4-6-4" class="src-right"><span class="name">White Kitsune</span>Actually you&#39;d be helping yourself too. It may help you discover what made your mom change.</p>
+          <p id="4-6-5" class="src-left"><span class="name">Yui</span>Is it dangerous?</p>
+          <p id="4-6-6" class="src-right"><span class="name">White Kitsune</span>I won&#39;t lie.</p>
+          <p id="4-6-7" class="src-right"><span class="name">White Kitsune</span>You could be killed, but, as I see it, you&#39;d probably end up dead if you didn&#39;t take the contract.</p>
+          <p id="4-6-8" class="src-right"><span class="name">White Kitsune</span>Even if it would be by your own hand.</p>
+        </div>
+        <div id="4-7" class="text dialogue">
+          <img class="actor left" src="../../images/actors/girls/yui-surprised_sgs.png" alt="A surprised Yui in her summer school uniform">
+          <img class="actor right" src="../../images/actors/kitsune/naoko-1f_neutral.png" alt="A mysterious fox-like creature, white with pink and blue stripes">
+          <p id="4-7-1" class="src-left"><span class="name">Yui</span>What!?</p>
+          <p id="4-7-2" class="src-right"><span class="name">White Kitsune</span>You were just about to kill yourself, weren&#39;t you?</p>
+          <p id="4-7-3" class="src-right"><span class="name">White Kitsune</span>So, Miss Yui Sakano, in order to potentially save your life, and make your life worth living, will you form a contract with me?</p>
+        </div>
+      </div>
+      <div id="End" class="panel-home" style="background-image: url('../../images/backgrounds/keyscenes/yui/ch1a3_02.png')">
+        <div class="choice">
+          <ul>
+            <li>So, Miss Yui Sakano, in order to potentially save your life, and make your life worth living, will you form a contract with me?</li>
+            <li><a href="../../../../php/user.php?action=save&level=episode&id=3&choice=a" class="btn btn-primary">O-okay</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- InstanceEndEditable -->
+  </section>
+  </body>
+<!-- InstanceEnd --></html>

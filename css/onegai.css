@@ -1,0 +1,111 @@
+@import './bootstrap-4.3.1.css';
+
+@media only screen and (min-height: 750px){
+  html, body {height: 100%}
+}
+body {background: center / contain no-repeat fixed linear-gradient(280deg, rgba(182,224,254,1) 0%, rgba(242,245,250,1) 48%, rgba(182,224,254,1) 100%) #D3E1F4; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; font-size: 12pt}
+h1, h2, h3, h4 {border-radius: 5px; background: #EC95C8; color: #5A022C; font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif"}
+h1 a, h2 a {color: inherit}
+h1 a:hover, h2 a:hover {color: inherit}
+
+section#body {height:100%}
+
+nav.bg-onigiri {background: #EC95C8}
+
+.navbar-onigiri .navbar-brand {color: #360115}
+.navbar-onigiri .navbar-nav .nav-link {color: #5A022C}
+.navbar-onigiri .navbar-toggler-icon {background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(90,2,44, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}
+
+.banner {width: 100%; background: url("../images/onigirionegai-banner_lt.png") center / contain no-repeat transparent}
+.banner img {max-width: 100%; visibility: hidden}
+
+.no-scene .info {border-radius: 5px; background: #F0F0F0}
+.no-scene .info .headline {background: transparent}
+.no-scene .info a {color: #14388C}
+
+.btn-primary, .btn-primary.disabled {background-color: #F56DAD; border-color: #F56DAD}
+.btn-primary:hover {background-color: #CE2C78; border-color: #CE2C78}
+.btn-secondary, .btn-secondary.disabled {background-color: #F8B2D3; border-color: #F8B2D3; color: #171315}
+.btn-secondary:hover {background-color: #F56DAD; border-color: #F56DAD}
+
+.modal-content, .dropdown-menu {background-color: #F3EBE2; border-color: #390C24; color: #171513}
+.dropdown-menu a.dropdown-item:hover {background-color :#DBD0C3}
+.dropdown-menu .dropdown-divider {border-color: #390C24}
+
+@media (prefers-color-scheme: dark) {
+  body {background: center / contain no-repeat fixed linear-gradient(51deg, rgba(36,41,66,1) 0%, rgba(24,24,24,1) 48%, rgba(36,41,66,1) 100%) #1B1E2C}
+  h1, h2, h3, h4 {background: #390C24; color: #D3E1F4}
+  
+  nav.bg-onigiri {background: #390C24; color: #fff}
+  
+  .close {color: #fff; text-shadow: 0 1px 0 #000}
+  
+  .navbar-onigiri .navbar-brand {color: #EC95C8}
+  .navbar-onigiri .navbar-nav .nav-link {color: #F7ECF1}
+  .navbar-onigiri .navbar-toggler-icon {background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(247,236,241, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}
+  
+  .no-scene .info {background: #181818; color: #FFFFFF}
+  .no-scene .info a {color: #5384E6}
+
+  .modal-content, .dropdown-menu {background-color: #282725; border-color: #F3EBE2; color: #F3EBE2}
+  .dropdown-menu a.dropdown-item {color: #fff}
+  .dropdown-menu a.dropdown-item:hover {background-color :#64625D}
+  .dropdown-menu .dropdown-divider {border-color: #F8B2D3}
+  
+  .banner {width: 100%; background: url("../images/onigirionegai-banner_dk.png") center / contain no-repeat transparent}
+}
+
+.full-width {max-width: 1920px !important; height:100%; padding: 0px; margin: auto}
+.full-width h1 {display: inline-block; position: absolute; top: 0; right: 0; max-width: 50%; z-index: 1; margin: 0; text-align: right; white-space: nowrap}
+.full-width h1:hover {white-space: normal}
+
+.scene {background: #000000; position: relative; padding-bottom: 56.25%; overflow: hidden; margin-left: 0; margin-right: 0}
+.scene > div {position: absolute; top: 0; bottom: 0; left:0; right: 0; display:none}
+.scene .panel-lt {background: center / contain no-repeat radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(209,201,205,1) 100%) #FFFFFF; padding: 0 !important}
+.scene .panel-dk {background: center / contain no-repeat radial-gradient(circle, rgba(209,201,205,1) 0%, rgba(0,0,0,1) 100%) #000000}
+.scene .panel-home {background: url("../project/dream-weaver/images/backgrounds/locations/seven-hearts-annex_daytime-spring.png") center / contain no-repeat #D3E1F4}
+
+.scene .text, .scene .end, .scene .choice {width:100%; height: 100%; display: flex; overflow: hidden}
+.scene > div.log {display: block; overflow: auto}
+.scene > div.log > div {width: 100%; height:auto; display: block !important}
+.scene > div.log > div > img.actor {display: none}
+.scene > div.log > div > p {margin: 5px; display:block !important; width: 95% !important; height: auto !important; position:relative !important}
+.scene > div.log > div > p.src-left {margin-left: 5px}
+.scene > div.log > div > p.src-left .name {padding-left: 0px}
+.scene > div.log > div > p.src-right {margin-left:auto; margin-right: 5px}
+.scene > div.log > div > p.src-right .name {padding-right: 0px}
+.scene img.actor {display:block; width:40%}
+.scene img.center {margin:auto auto 10px}
+.scene img.left {float:left; margin: auto auto 10px 10px}
+.scene img.right {float:right; margin: auto 10px 10px auto}
+.scene .text .etxt {font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace"}
+.scene .text .term {font-weight: bold; color: #5A022C}
+.scene .narration {margin: auto; background: rgba(0,0,0,0.4); text-align: center; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; font-size: 16pt; color: #FFFFFF}
+.scene .narration p {display: none; margin:auto !important}
+.scene .caption {height: 100%; text-align: center; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; font-size: 14pt; color: #FFFFFF}
+.scene .caption p {position: absolute; bottom: 0; margin-bottom: 0px; display: none; background: rgba(0,0,0,0.4); height: 25%; width: 100%; overflow-x: auto}
+.scene .caption p .name {display:block}
+.scene .dialogue {overflow-x: auto}
+.scene .dialogue p {height:15%; width: 98%; overflow-x: scroll; background: #F3EBE2; border: 1px solid #171513; border-radius: 4px; display: none; position: absolute; bottom: 0; margin:5px; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; font-size: 14pt; color: #171513}
+.scene .dialogue p .name {display: block; font-weight: bold; background: rgba(0,0,0,.25); color: #FFFFFF}
+.scene .dialogue p.src-left .name {text-align: left; padding-left: 10%}
+.scene .dialogue p.src-right .name {text-align:right; padding-right: 10%}
+.scene .hidden {background: transparent; width:100%; height:100%; color: transparent}
+.scene .hidden p {height: 1em; display: none; position:absolute; bottom: 0; right:0}
+.scene .choice {background: rgba(0,0,0,0.4); text-align: center}
+.scene .choice ul {margin:auto;list-style: none; padding-left: 0px}
+.scene .choice ul li {text-align: center; padding:4px 0px; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; font-size: 16pt; color: #FFFFFF}
+
+.scene .info p {width:66%; margin: auto; border: #390C24 solid 2px; border-radius: 5px; background: #F3EBE2; text-align: center; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; font-size: 14pt; color: #171513}
+.scene .info p {display: none}
+
+.scene .character .select-grid {width:100%; height:100%; overflow-x: scroll}
+.scene .character .select-grid .select {border: #390C24 solid 2px; float:left; width:20%; background: #F3EBE2; border-radius: 5px}
+.scene .character .select-grid a img {width:100%}
+.scene .character .select-grid .locked {display: none}
+
+.character-info {cursor:default !important; overflow: auto !important}
+.character-info img, .acts img {height:100%; float:left}
+.character-info div, .acts ul {max-width: 100%; margin: auto; border: #390C24 solid 1px; border-radius: 5px; padding:2px; background: #F3EBE2; float:left}
+.character-info div h2 {background: transparent !important; color: #5A022C}
+.character-info div p {width: 100% !important; border:transparent !important; background: transparent !important; text-align: left !important}
